@@ -9,9 +9,9 @@ Mytodolist::Application.routes.draw do
   match "edit/:id" => "lists#edit"
   match "delete" => "lists#destroy"
   match "index" => "lists#index"
-  resources :lists
-  resources :tasks
-
+  resources :lists  do
+      resources :tasks
+  end
 
 
 

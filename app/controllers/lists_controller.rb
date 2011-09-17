@@ -12,11 +12,11 @@ class ListsController < ApplicationController
   def create
     @list = List.new(params[:list])
     if @list.save
-      flash[:notice] = "List created"
-      render :action => 'index'
+      flash[:message] = "List created"
+      redirect_to :action => 'index'
     else
-      flash[:notice] =" List not created"
-      render 'new'
+      flash[:message] =" List not created"
+      redirect_to :action => 'new'
     end
   end
 
@@ -32,10 +32,10 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update_attributes(params[:list])
-      flash[:notice] = "List updated"
+      flash[:message] = "List updated"
       redirect_to :action => 'index'
     else
-      flash[:notice] =" List not updated"
+      flash[:message] =" List not updated"
       redirect_to edit
     end
   end

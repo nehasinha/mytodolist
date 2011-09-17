@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   respond_to :html, :xml, :js
 
   def create
-    @list = List.find(:list_id => @list.id)
+    @list = List.find(params[:id])
+    puts @list
     @task = @list.tasks.new
-    @task.description = :value
     if @task.save
       flash[:message] = "task created"
       redirect_to :action => 'show', :id => :list_id
