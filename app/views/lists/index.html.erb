@@ -1,0 +1,15 @@
+<h1>My to do lists</h1>
+    <% @lists.each do |list| %>
+    <h3><%= link_to "#{list.name}" , :action => 'show', :id => "#{list.id}" %></h3>
+    <p><%= list.description %>
+       <%= link_to "Edit", :action => 'edit', :id => "#{list.id}" %>
+       <%= link_to "Delete",:id => "#{list.id}" ,:action => :destroy %>
+    </p>
+<% end %>
+
+<hr/>
+
+
+<%= link_to "Add new list","new" %>
+
+

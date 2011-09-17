@@ -1,0 +1,17 @@
+<h1><%= @list.name %></h1>
+   <%=@list.description %>
+
+<ul>
+  <% @list.tasks.each do |task| %>
+  <li><%= task.description %> </li>
+  <% end %>
+</ul>
+
+<%= form_for(@task, @list) do |form|   %>
+      <%= form.text_field :description %>
+      <%= form.submit %>
+<% end %>
+
+<hr/>
+<%= link_to "Back to all lists", lists_url %>
+
