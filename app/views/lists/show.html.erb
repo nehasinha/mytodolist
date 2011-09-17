@@ -1,8 +1,5 @@
-
-<h1><%= flash[:message] %></h1>
-
-<%= @list.name %>
-   <%=@list.description %>
+<h2><%= @list.name %></h2>
+<%= @list.description %>
 
 <ul>
   <% @list.tasks.each do |task| %>
@@ -10,9 +7,8 @@
   <% end %>
 </ul>
 
-<%= form_for(@task, @list) do |form|   %>
-      <%= form.text_field :description %>
-      <%= form.submit%>
+<%= form_for [@list, @task] do |form|   %>
+      <%= form.text_field :description %>  <%= form.submit%>
 <% end %>
 
 <hr/>

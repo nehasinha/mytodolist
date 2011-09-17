@@ -5,10 +5,11 @@ Mytodolist::Application.routes.draw do
   root    :to => "lists#index"
   match "new" => "lists#new"
   match "create" => "lists#create"
-  match "show" => "lists#show"
+  match "show/:id" => "lists#show"
   match "edit/:id" => "lists#edit"
   match "delete" => "lists#destroy"
   match "index" => "lists#index"
+  match "lists/show" => "lists#show"
   resources :lists  do
       resources :tasks
   end

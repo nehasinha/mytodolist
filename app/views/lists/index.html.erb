@@ -1,12 +1,12 @@
 <h1>My to do lists</h1>
-<%unless @lists.nil? %>
+
     <% @lists.each do |list| %>
-    <h3><%= link_to "#{list.name}" , :action => 'show', :id => "#{list.id}" %></h3>
+    <%= link_to "#{list.name}" , :action => 'show', :id => "#{list.id}" %>
     <p><%= list.description %>
-       <%= link_to "Edit", :action => 'edit', :id => "#{list.id}" %>
-       <%= link_to "Delete",:id => "#{list.id}" ,:action => :destroy %>
+    <%= link_to "Edit"         , :action => 'edit', :id => "#{list.id}" %> |
+    <%= link_to "Delete",:id => "#{list.id}" ,:action => :destroy %>
     </p>
-<% end %>
+
           <%end%>
 <hr/>
 
