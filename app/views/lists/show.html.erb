@@ -1,11 +1,21 @@
 <h2><%= @list.name %></h2>
 <%= @list.description %>
 
+<h3>Stuff to do</h3>
 <ul>
-  <% @list.tasks.each do |task| %>
-  <li><%= task.description %> </li>
+  <% @list.tasks.incomplete.each do |task| %>
+  <p></p><li><%= task.description %> <%= button_to "Complete", complete_task_path(@list.id, task.id) %>
+  </li> </p>
   <% end %>
 </ul>
+<h3>Stuff ive done</h3>
+<ul id="completed">
+  <% @list.tasks.completed.each do |task| %>
+  <p></p><li><%= task.description %>
+  </li> </p>
+  <% end %>
+</ul>
+<hr/>
 
 <%= form_for [@list, @task] do |form|   %>
       <%= form.text_field :description %>  <%= form.submit%>

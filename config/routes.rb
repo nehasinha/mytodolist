@@ -10,6 +10,10 @@ Mytodolist::Application.routes.draw do
   match "delete" => "lists#destroy"
   match "index" => "lists#index"
   match "lists/show" => "lists#show"
+
+
+  match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => 'complete_task'
+
   resources :lists  do
       resources :tasks
   end
