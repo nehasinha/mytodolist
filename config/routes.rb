@@ -13,6 +13,7 @@ Mytodolist::Application.routes.draw do
 
 
   match 'lists/:list_id/tasks/:id/complete' => 'tasks#complete', :as => 'complete_task'
+  match 'lists/:list_id/tasks/:id/destroy'  => 'tasks#destroy' , :as => 'destroy_task'
 
   resources :lists  do
       resources :tasks
