@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   respond_to :html, :xml, :js
+  before_filter :authenticate_user!
 
   def index
     respond_with(@lists = List.all)

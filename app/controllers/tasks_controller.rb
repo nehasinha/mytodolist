@@ -11,7 +11,6 @@ class TasksController < ApplicationController
     if @task.save
       flash[:message] = "task created"
       redirect_to list_url(@list)
-     # redirect_to :action => 'show', :id => :list_id
     else
       flash[:message] = "task not created"
       redirect_to list_url(@list)
